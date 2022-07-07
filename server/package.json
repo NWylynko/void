@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "bun-types": "^0.0.83",
+    "typescript": "^4.7.4"
+  }
+}
