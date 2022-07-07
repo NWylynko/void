@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install bun
+        run: curl https://bun.sh/install | bash
+
       - name: Install Dependencies
         run: bun install
         working-directory: ./react
