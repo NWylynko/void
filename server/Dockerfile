@@ -1,22 +1,24 @@
-FROM alpine:3.16
+FROM ubuntu:22.04
+
+WORKDIR /bun
+
+RUN apt-get update
+RUN apt-get install curl unzip -y
+RUN curl --fail --location --progress-bar --output "/bun/bun.zip" "https://github.com/Jarred-Sumner/bun/releases/download/bun-v0.1.1/bun-linux-x64.zip"
+RUN unzip -d /bun -q -o "/bun/bun.zip"
+RUN mv /bun/bun-linux-x64/bun /usr/local/bin/bun
+RUN chmod 777 /usr/local/bin/bun
 
 WORKDIR /app
-
-RUN apk add curl bash
-
-SHELL ["/bin/bash", "-c"]
-
-RUN curl https://bun.sh/install | /bin/bash
-
-RUN ls -la /root/.bun/bin
-
-RUN /root/.bun/bin/bun --help
+RUN addgroup --gid 101 --system appuser && adduser --uid 101 --system appuser
+RUN chown -R 101:101 /app && chmod -R g+w /app
+USER appuser
 
 COPY package.json bun.lockb ./
 
-RUN /root/.bun/bin/bun install
+RUN bun install
 
 COPY ./src tsconfig.json ./
 
-CMD ["/root/.bun/bin/bun", "./src/index.ts"]
+CMD ["bun", "run", "./src/index.ts"]
 
