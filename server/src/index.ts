@@ -25,7 +25,7 @@ const server = Bun.serve({
   // keyFile: './key.pem',
 
   hostname: "0.0.0.0",
-  port: process.env.PORT ?? 4000, // number or string
+  port: Number(process.env.PORT) ?? 4000, // number or string
 });
 
 console.log(`listing on ${server.hostname}`)
