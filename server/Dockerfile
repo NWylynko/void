@@ -18,9 +18,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN ls -la
-
 RUN bun install
 
-CMD ["bun", "run", "./src/index.ts"]
+CMD ["bun", "src/index.ts"]
 
