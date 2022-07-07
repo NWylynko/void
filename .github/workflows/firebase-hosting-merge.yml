@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create Bash RC
+        run: touch ~/.bashrc
+
       - name: Install bun
         run: curl https://bun.sh/install | bash
 
