@@ -14,13 +14,11 @@ RUN addgroup --gid 101 --system appuser && adduser --uid 101 --system appuser
 RUN chown -R 101:101 /app && chmod -R g+w /app
 USER appuser
 
-COPY package.json bun.lockb ./
+COPY . .
 
 RUN ls -la
 
 RUN bun install
-
-COPY ./src tsconfig.json ./
 
 CMD ["bun", "run", "./src/index.ts"]
 
