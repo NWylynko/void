@@ -1,6 +1,6 @@
 
 // Start a fast HTTP server from a function
-Bun.serve({
+const server = Bun.serve({
   fetch(req: Request) {
 
     const url = new URL(req.url);
@@ -24,6 +24,8 @@ Bun.serve({
   // certFile: './cert.pem',
   // keyFile: './key.pem',
 
+  hostname: "0.0.0.0",
   port: process.env.PORT ?? 4000, // number or string
 });
 
+console.log(`listing on ${server.hostname}`)
