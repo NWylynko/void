@@ -2,9 +2,9 @@ FROM alpine:3.16
 
 WORKDIR /app
 
-SHELL ["/bin/bash", "-c"]
-
 RUN apk add curl bash
+
+SHELL ["/bin/bash", "-c"]
 
 RUN curl https://bun.sh/install | /bin/bash
 
