@@ -6,7 +6,7 @@ RUN apk add curl bash
 
 RUN curl https://bun.sh/install | /bin/bash
 
-RUN ls /root/.bun
+RUN ls -la /root/.bun/bin
 
 COPY package.json bun.lockb ./
 
