@@ -15,15 +15,12 @@ jobs:
       - name: Install bun
         run: curl https://bun.sh/install | bash
 
-      - name: Add bun to path
-        run : echo 'BUN_INSTALL="/home/runner/.bun"\nPATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
-
       - name: Install Dependencies
-        run: bun install
+        run: /home/runner/.bun/bin/bun install
         working-directory: ./react
 
       - name: Build Website
-        run: bun run build
+        run: /home/runner/.bun/bin/bun run build
         working-directory: ./react
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
