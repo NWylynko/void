@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create Bash RC
-        run: touch ~/.bashrc
-
       - name: Install bun
         run: curl https://bun.sh/install | bash
+
+      - name: Add bun to path
+        run : echo 'BUN_INSTALL="/home/runner/.bun"\nPATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 
       - name: Install Dependencies
         run: bun install
