@@ -8,6 +8,8 @@ RUN curl https://bun.sh/install | /bin/bash
 
 RUN ls -la /root/.bun/bin
 
+RUN /bin/bash /root/.bun/bin/bun --help
+
 COPY package.json bun.lockb ./
 
 RUN /root/.bun/bin/bun install
