@@ -1,10 +1,10 @@
 FROM alpine:3.16
 
+WORKDIR /app
+
 RUN apk add curl bash
 
 RUN curl https://bun.sh/install | /bin/bash
-
-WORKDIR /app
 
 COPY package.json bun.lockb ./
 
