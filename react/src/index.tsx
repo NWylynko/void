@@ -1,7 +1,8 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import { createGlobalStyle } from "styled-components"
+import "@fontsource/metrophobic"
 
 const BaseStyle = createGlobalStyle`
 
@@ -15,6 +16,8 @@ const BaseStyle = createGlobalStyle`
 
     background-color: var(--background);
     color: var(--foreground);
+
+    font-family: "Metrophobic", sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
