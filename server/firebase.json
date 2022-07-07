@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "site": "api-void-4c062",
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "void-server",
+          "region": "australia-southeast1"
+        }
+      }
+    ]
+  }
+}
