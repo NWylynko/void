@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import { createGlobalStyle } from "styled-components"
@@ -22,6 +22,7 @@ const BaseStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: var(--accent);
+    margin: 2px;
   }
 
 `;

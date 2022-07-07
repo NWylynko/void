@@ -1,9 +1,10 @@
-import * as React from "react";
+import React from "react";
+import { ShoutInput } from "./components/ShoutInput";
 
 export function App() {
   return (
-    <div>
-      <span>void</span>
-    </div>
+    <>
+      <ShoutInput />
+    </>
   );
 }
