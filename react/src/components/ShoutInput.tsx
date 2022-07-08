@@ -12,7 +12,20 @@ export const ShoutInput = () => {
 
   const send = handleSubmit(async ({ message }) => {
     reset();
+
     console.log(message)
+
+    // const url = "http://localhost:4000"
+    const url = "https://api.void.nick.wylynko.com"
+
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ message })
+    })
+
+    const data = await response.json();
+
+    console.log(data);
   })
 
   return (

@@ -1,14 +1,26 @@
 
+// console.log(process.env)
+
 // Start a fast HTTP server from a function
 const server = Bun.serve({
-  fetch(req: Request) {
+  async fetch(req: Request) {
 
     const url = new URL(req.url);
     const path = url.pathname;
 
-    console.log(`${req.method} ${path}`)
+    const id = crypto.randomUUID();
+    const body = await req.json();
 
-    return new Response(JSON.stringify({ Request: `${req.method} ${path}` }), { headers: { "Content-Type": "application/json" } });
+    console.log(`${req.method} ${path} ${body} ${id}`)
+
+    const responseBody = JSON.stringify({ Request: `${req.method} ${path}`, body, id })
+
+    const headers = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    }
+
+    return new Response(responseBody, { headers });
   },
 
   // this is called when fetch() throws or rejects

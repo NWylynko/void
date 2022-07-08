@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "develop": "npx nodemon --exec bun src/index.ts"
+  },
   "devDependencies": {
-    "bun-types": "^0.0.83",
+    "bun-types": "^0.1.2",
     "typescript": "^4.7.4"
   }
 }
