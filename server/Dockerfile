@@ -16,13 +16,18 @@ WORKDIR /app
 # RUN chown -R 101:101 /app && chmod -R g+w /app
 # USER appuser
 
+# copy everything
 COPY . .
 
+# install deps
 RUN bun install
 
+# bundle up deps
 RUN bun bun src/index.ts
 
-RUN rm node_modules
+# remove deps
+RUN rm -rf node_modules
 
+# run
 CMD ["bun", "src/index.ts"]
 
