@@ -8,7 +8,7 @@ const server = Bun.serve({
 
     console.log(`${req.method} ${path}`)
 
-    return new Response(`Request: ${req.method} ${path}`);
+    return new Response(JSON.stringify({ Request: `${req.method} ${path}` }), { headers: { "Content-Type": "application/json" } });
   },
 
   // this is called when fetch() throws or rejects
